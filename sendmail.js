@@ -92,10 +92,10 @@ async function sendmail(userEmail, varSymbol, english) {
     const EMAIL_USER = process.env.EMAIL_USER;
     const EMAIL_HOST = process.env.EMAIL_HOST;
 
-    const amount = process.env.AMOUNT;
-    const iban = process.env.IBAN;
+    const AMOUNT = process.env.AMOUNT;
+    const IBAN = process.env.IBAN;
 
-    const QR = await QRCode.toDataURL(`SPD*1.0*ACC:${iban}*AM:${amount}*CC:CZK*X-VS:${varSymbol}*`,{ errorCorrectionLevel: 'H' })
+    const QR = await QRCode.toDataURL(`SPD*1.0*ACC:${IBAN}*AM:${AMOUNT}*CC:CZK*X-VS:${varSymbol}*`,{ errorCorrectionLevel: 'H' })
     const todayDate = getTodayDate();
 
     const dueToDate = getDueToDate();
